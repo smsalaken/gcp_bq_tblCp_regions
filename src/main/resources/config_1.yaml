@@ -1,0 +1,44 @@
+# [required] The GCP project id (not the number). You can find this in the GCP console.
+project: salekin-bq-sandpit
+
+# [required] The type of runner. One of:
+# - dataflow (runs on GCP)
+# - local (runs on local machine)
+runner: dataflow
+
+# Copy parameters. These can be overwritten on a per-copy basis below. Options:
+#
+# [optional] workerMachineType: The type of the workers. Default is n1-standard-1.
+# [optional] numWorkers: The initial number of workers in the Dataflow cluster. Default is 1.
+# [optional] maxNumWorkers: The max number of workers in the Dataflow cluster. Default is 3.
+# [optional] targetDatasetLocation: If the target dataset in BigQuery does not exist, use this to specify the location.
+# [optional] zone: The zone where Dataflow cluster will spin up. Default is australia-southeast1-a.
+# [optional] writeDisposition: Either truncate or append. Default is truncate.
+# [optional] detectSchema: Either true or false. Use this as a workaround for complex schemas. Default is true.
+# [optional] composite: Either true or false. If true, Dataflow runs all copies as 1 job/pipeline. If false, each copy
+#                       is run as as an independent Dataflow job/pipeline. Default is true.
+# [required] source: The source in format [PROJECT]:[DATASET] for dataset or [PROJECT]:[DATASET].[TABLE] for table
+# [required] target: The target in format [PROJECT]:[DATASET] for dataset or [PROJECT]:[DATASET].[TABLE] for table
+copies:
+# Dataset copy
+- source: bigquery-samples:nasdaq_stock_quotes.quotes
+  target: salekin-bq-sandpit:nasdaq_stock_quotes.quotes
+  numWorkers: 2
+  maxNumWorkers: 2
+  writeDisposition: append
+
+# Table copy to EU
+- source: bigquery-public-data:world_bank_wdi.country_series_definitions
+  target: <YOUR_PROJECT_ID>:world_bank_wdi_US.country_series_definitions
+  maxNumWorkers: 1
+  workerMachineType: n1-standard-2
+  writeDisposition: append
+  targetDatasetLocation: US
+
+  # Table copy to US
+- source: bigquery-public-data:world_bank_wdi.country_series_definitions
+  target: <YOUR_PROJECT_ID>:world_bank_wdi_EU.country_series_definitions
+  maxNumWorkers: 1
+  workerMachineType: n1-standard-2
+  writeDisposition: append
+  targetDatasetLocation: EU

@@ -1,0 +1,6 @@
+steps:
+- name: gcr.io/cloud-builders/git
+  args: ['clone', 'https://github.com/polleyg/gcp-dataflow-copy-bigquery.git']
+
+- name: gcr.io/cloud-builders/gradle
+  args: ['build', 'run']
