@@ -2,5 +2,5 @@ steps:
 - name: gcr.io/cloud-builders/git
   args: ['clone', 'https://github.com/smsalaken/gcp_bq_tblCp_regions.git']
 
-- name: gcr.io/cloud-builders/gradle
+- name: gcr.io/cloud-builders/gradle@sha256:4504570445a0ac7aa770f558e4a9a733b7fefd4320d16d38f6a5a29e41c4846c
   args: ['build', 'run']

@@ -21,8 +21,8 @@ runner: dataflow
 # [required] target: The target in format [PROJECT]:[DATASET] for dataset or [PROJECT]:[DATASET].[TABLE] for table
 copies:
 # Dataset copy
-- source: bigquery-samples:nasdaq_stock_quotes
-  target: salekin-bq-sandpit:bq_benchmarking_regions
+- source: bigquery-samples:nasdaq_stock_quotes.quotes
+  target: salekin-bq-sandpit:bq_benchmarking_regions.quotes
   numWorkers: 2
   maxNumWorkers: 2
   targetDatasetLocation: australia-southeast1
