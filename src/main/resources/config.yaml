@@ -25,6 +25,8 @@ copies:
   target: salekin-bq-sandpit:bq_benchmarking_regions.quotes
   numWorkers: 2
   maxNumWorkers: 2
-  targetDatasetLocation: australia-southeast1
 
-
+- source: bigquery-public-data:samples.github_timeline
+  target: salekin-bq-sandpit:bq_benchmarking_regions.github_timeline
+  numWorkers: 2
+  maxNumWorkers: 2
