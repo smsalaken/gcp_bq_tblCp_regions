@@ -21,12 +21,6 @@ runner: dataflow
 # [required] target: The target in format [PROJECT]:[DATASET] for dataset or [PROJECT]:[DATASET].[TABLE] for table
 copies:
 # Dataset copy
-- source: bigquery-samples:nasdaq_stock_quotes.quotes
-  target: salekin-bq-sandpit:bq_benchmarking_regions.quotes
-  numWorkers: 2
-  maxNumWorkers: 2
-
-- source: bigquery-public-data:samples.github_timeline
-  target: salekin-bq-sandpit:bq_benchmarking_regions.github_timeline
-  numWorkers: 2
-  maxNumWorkers: 2
+- source: bigquery-public-data:crypto_ethereum
+  target: salekin-bq-sandpit:bq_benchmarking_crypto_ethereum
+  
