@@ -22,26 +22,8 @@ runner: dataflow
 copies:
 # Dataset copy
   
-- source: bigquery-public-data:crypto_ethereum.contracts
-  target: salekin-bq-sandpit:bq_benchmarking_crypto_ethereum.contracts
-  numWorkers: 2
+- source: bigquery-public-data:github_repos.contents
+  target: salekin-bq-sandpit:bq_benchmarking_regions.contents
   
-#- source: bigquery-public-data:crypto_ethereum.logs
-#  target: salekin-bq-sandpit:bq_benchmarking_crypto_ethereum.logs
-#  numWorkers: 2
-  
-#- source: bigquery-public-data:crypto_ethereum.token_transfers
-#  target: salekin-bq-sandpit:bq_benchmarking_crypto_ethereum.token_transfers
-#  numWorkers: 2
-  
-#- source: bigquery-public-data:crypto_ethereum.tokens
-#  target: salekin-bq-sandpit:bq_benchmarking_crypto_ethereum.tokens
-#  numWorkers: 2
-  
-#- source: bigquery-public-data:crypto_ethereum.traces
-#  target: salekin-bq-sandpit:bq_benchmarking_crypto_ethereum.traces
-#  numWorkers: 2
-  
-#- source: bigquery-public-data:crypto_ethereum.transactions
-#  target: salekin-bq-sandpit:bq_benchmarking_crypto_ethereum.transactions
-#  numWorkers: 2
+- source: bigquery-public-data:github_repos.files
+  target: salekin-bq-sandpit:bq_benchmarking_regions.files
