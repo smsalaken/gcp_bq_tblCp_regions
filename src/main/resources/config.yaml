@@ -22,8 +22,9 @@ runner: dataflow
 copies:
 # Dataset copy
   
-- source: bigquery-public-data:github_repos.contents
-  target: salekin-bq-sandpit:bq_benchmarking_regions.contents
-  
-- source: bigquery-public-data:github_repos.files
-  target: salekin-bq-sandpit:bq_benchmarking_regions.files
+- source: salekin-bq-sandpit:bq_benchmarking_regions.github_timeline
+  target: salekin-bq-sandpit:bq_benchmarking_us_east4.github_timeline
+
+- source: salekin-bq-sandpit:bq_benchmarking_regions.quotes
+  target: salekin-bq-sandpit:bq_benchmarking_us_east4.quotes
+
